@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using Dapper;
 using DDDSyd2016.IdentityServer.Models;
 
 namespace DDDSyd2016.IdentityServer
 {
-    public class DapperRepo
+    public class DapperRepo : IDapperRepo
     {
         private System.Data.IDbConnection GetOpenConnection()
         {
@@ -27,6 +28,9 @@ namespace DDDSyd2016.IdentityServer
                     result.ClientRedirectUris = conn.Query<ClientRedirectUri>(@"SELECT * FROM Auth.ClientRedirectUris WHERE Client_Id = @ClientId", new { ClientId = result.Id });
                     result.ClientScopes = conn.Query<string>(@"SELECT Scope FROM Auth.ClientScopes WHERE Client_Id = @ClientId", new { ClientId = result.Id });
                     result.ClientSecrets = conn.Query<ClientSecret>(@"SELECT * FROM Auth.ClientSecrets WHERE Client_Id = @ClientId", new { ClientId = result.Id });
+                    result.ClientClaims =
+                        conn.Query<Claim>(@"select Type,Value from Auth.ClientClaims where Client_Id = @ClientId",
+                            new {ClientId = result.Id});
                 }
                 return result;
             }

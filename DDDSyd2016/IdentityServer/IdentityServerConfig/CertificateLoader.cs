@@ -11,13 +11,13 @@ namespace DDDSyd2016.IdentityServer.IdentityServerConfig
         public static X509Certificate2 LoadCertificate()
         {
 #if DEBUG
-            return new X509Certificate2(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\IdentityServer\\SomeCert.pfx", "idsrv3test");
+            //return new X509Certificate2(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\IdentityServer\\EPTokenCert.pfx", "W@t5up!");
 #endif
 
             var certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
             certStore.Open(OpenFlags.ReadOnly);
             X509Certificate2Collection certCollection = certStore.Certificates.Find(
-                                       X509FindType.FindBySubjectName,"localhost", false);  // typically get this cert identifier from config
+                                       X509FindType.FindBySubjectName,"EP2Dev", false);  // typically get this cert identifier from config
             // Get the first cert with the thumbprint
             if (certCollection.Count > 0)
             {

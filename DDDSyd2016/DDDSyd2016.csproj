@@ -262,6 +262,7 @@
     <Compile Include="IdentityServer\DapperRepo.cs" />
     <Compile Include="IdentityServer\Diagnostics\SimpleDiagnosticLogger.cs" />
     <Compile Include="IdentityServer\Extensions\HashingExtensions.cs" />
+    <Compile Include="IdentityServer\IDapperRepo.cs" />
     <Compile Include="IdentityServer\IdentityServerConfig\CertificateLoader.cs" />
     <Compile Include="IdentityServer\IdentityServerConfig\IdentityServerCustomStoreWithOpenIdMvcSetup.cs" />
     <Compile Include="IdentityServer\IdentityServerConfig\IdentityServerCustomStoreSetup.cs" />

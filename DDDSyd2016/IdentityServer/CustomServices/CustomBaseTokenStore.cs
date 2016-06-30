@@ -41,11 +41,13 @@ namespace DDDSyd2016.IdentityServer.CustomServices
         protected string ConvertToJson(T value)
         {
             return JsonConvert.SerializeObject(value,GetJsonSerializerSettings());
+            //return JsonConvert.SerializeObject(value);
         }
 
         protected T ConvertFromJson(string json)
         {
             return JsonConvert.DeserializeObject<T>(json, GetJsonSerializerSettings());
+           // return JsonConvert.DeserializeObject<T>(json);
         }
 
         public Task<IEnumerable<ITokenMetadata>> GetAllAsync(string subject)

@@ -58,7 +58,8 @@ namespace DDDSyd2016.IdentityServer.CustomServices
                     {
                         return new Secret(s.Value, s.Description, s.Expiration);
                     }).ToList(),
-                    RedirectUris = client.ClientRedirectUris.Select(r => r.Uri).ToList()
+                    RedirectUris = client.ClientRedirectUris.Select(r => r.Uri).ToList(),
+                    Claims = client.ClientClaims.ToList()
                 };
                 //AllowedScopes = client.ClientScopes.Select(s => s.Scope).ToList(),
                 //ClientSecrets = client.ClientSecrets.Select(s =>

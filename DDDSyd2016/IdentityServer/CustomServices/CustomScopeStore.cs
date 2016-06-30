@@ -23,9 +23,7 @@ namespace DDDSyd2016.IdentityServer.CustomServices
 
             if (scopeNames != null && scopeNames.Any())
             {
-                scopes = from s in scopes
-                         where scopeNames.Contains(s.Name)
-                         select s;
+                scopes = scopes.Where(s => scopeNames.Contains(s.Name));
             }
 
             return scopes;

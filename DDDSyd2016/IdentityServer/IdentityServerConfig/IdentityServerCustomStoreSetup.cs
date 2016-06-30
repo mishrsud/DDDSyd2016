@@ -34,7 +34,7 @@ namespace DDDSyd2016.IdentityServer.IdentityServerConfig
              {
                  var options = new IdentityServerOptions
                  {
-                     SiteName = "Glavs Secret Identity Server",
+                     SiteName = "EP2 Identity Server",
                      RequireSsl = requireSsl,
                      IssuerUri = "http://AuthOmeSite.com",
                      SigningCertificate = CertificateLoader.LoadCertificate(),
@@ -90,7 +90,9 @@ namespace DDDSyd2016.IdentityServer.IdentityServerConfig
             options.Factory.TokenHandleStore = new Registration<ITokenHandleStore, CustomTokenHandleStore>();
             options.Factory.RefreshTokenStore = new Registration<IRefreshTokenStore, CustomRefreshTokenStore>();
             options.Factory.ClientPermissionsService = new Registration<IClientPermissionsService, CustomClientPermissionsService>();
-
+            // When required, a libsodium based hashed secret validator can be added here 
+            // Get the list first, then add custom ISecretValidator implementation at the top - test
+            // options.Factory.SecretValidators = new List<Registration<ISecretValidator>>();
         }
 
         private static LoggingOptions GetFullLoggingConfig()

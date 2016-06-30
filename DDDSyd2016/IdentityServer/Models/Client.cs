@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 
 namespace DDDSyd2016.IdentityServer.Models
@@ -39,6 +40,6 @@ namespace DDDSyd2016.IdentityServer.Models
         public IEnumerable<ClientSecret> ClientSecrets { get; set; }
         public IEnumerable<ClientRedirectUri> ClientRedirectUris { get; set; }
         public IEnumerable<string> ClientScopes { get; set; }
-
+        public IEnumerable<Claim> ClientClaims { get; set; }
     }
 }
